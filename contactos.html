@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía Thomas Edison</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1 class="logo">TE</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="vida.html">Vida</a></li>
+            <li><a href="trabajo.html">Trabajo</a></li>
+            <li><a href="legado.html">Legado</a></li>
+            <li class="home-btn"><a href="contactos.html">Contactos</a></li>
+        </ul>
+        <img src="assets/img/menu-btn.png" alt="" class="menu-btn">
+    </nav>
+
+    <!-- Contactos -->
+    <section class="contactos" id="contactos" > 
+        <div class="contactos-content">
+            <h1>Contactos</h1>
+            <div class="linea"></div>
+            <p>¡Contáctanos para obtener más información!</p>
+            <div class="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+                <button class="home-btn" id="enviarBtn" onclick="validarFormulario()">Enviar</button>
+            </div>
+            <div id="mensaje-enviado" style="display: none;">¡Mensaje enviado correctamente!</div>            
+        </div>
+    </section>
+
+        <!-- footer -->
+        <section class="footer"> 
+            <p>© 2023 Copyright: Nairuma Fernández</p>
+        </section>
+
+                <script>
+                    function validarFormulario() {
+                    const nombreInput = document.getElementById('nombre');
+                    const emailInput = document.getElementById('email');
+                    const mensajeInput = document.getElementById('mensaje');
+                    const mensajeEnviado = document.getElementById('mensaje-enviado');
+                
+                    // Verificar que los campos no estén vacíos
+                    if (nombreInput.value === '' || emailInput.value === '' || mensajeInput.value === '') {
+                        alert('Por favor, complete todos los campos antes de enviar el formulario.');
+                        return;
+                    }
+                
+                    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                    if (!emailRegex.test(emailInput.value)) {
+                        alert('Por favor, introduzca una dirección de correo electrónico válida.');
+                        return;
+                    }
+                
+                    // Aquí puedes agregar cualquier otra validación que necesites, como verificar el formato del correo electrónico, etc.
+                
+                    // Si todos los campos están llenos, puedes enviar el formulario o mostrar un mensaje de éxito
+                    mensajeEnviado.style.display = 'block';
+                
+                    nombreInput.value = '';
+                    emailInput.value = '';
+                    mensajeInput.value = '';
+                }
+                
+                </script>
+</body>
+</html>

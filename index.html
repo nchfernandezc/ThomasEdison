@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía Thomas Edison</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1 class="logo">TE</h1>
+        <ul class="nav-links">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="vida.html">Vida</a></li>
+            <li><a href="trabajo.html">Trabajo</a></li>
+            <li><a href="legado.html">Legado</a></li>
+            <li class="home-btn"><a href="contactos.html">Contactos</a></li>
+        </ul>
+        <img src="assets/img/menu-btn.png" alt="" class="menu-btn">
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h2>"Las personas no son recordadas por el número de veces que fracasan, <br> sino por el número de veces que tienen éxito”</h2>  
+            <div class="linea"></div>
+            <h1>Thomas Alva Edison</h1>
+        </div>
+    </header>
+
+    <!-- footer -->
+    <section class="footer"> 
+        <p>© 2023 Copyright: Nairuma Fernández</p>
+    </section>
+
+
+    <script>
+        function validarFormulario() {
+        const nombreInput = document.getElementById('nombre');
+        const emailInput = document.getElementById('email');
+        const mensajeInput = document.getElementById('mensaje');
+        const mensajeEnviado = document.getElementById('mensaje-enviado');
+
+
+        if (nombreInput.value === '' || emailInput.value === '' || mensajeInput.value === '') {
+            alert('Por favor, complete todos los campos antes de enviar el formulario.');
+            return;
+        }
+
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(emailInput.value)) {
+            alert('Por favor, introduzca una dirección de correo electrónico válida.');
+            return;
+        }
+
+
+        mensajeEnviado.style.display = 'block';
+
+        nombreInput.value = '';
+        emailInput.value = '';
+        mensajeInput.value = '';
+    }
+
+    </script>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('menu-movil');
+        });
+    </script>
+</body>
+</html>
